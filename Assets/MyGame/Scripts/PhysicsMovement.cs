@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class PhysicsMovement : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    public float MinGroundNormalY = .65f;
-    public float GravityModifier = 1f;
-    public Vector2 Velocity;
-    public LayerMask LayerMask;
 
     public bool Grounded { get; private set; }
 
+    protected Vector2 Velocity;
+    protected LayerMask LayerMask;
+    protected float MinGroundNormalY = .65f;
+    protected float GravityModifier = 1f;
     protected Vector2 targetVelocity;
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
@@ -26,13 +29,13 @@ public class PhysicsMovement : MonoBehaviour
     void OnEnable()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Start()
     {
-        _animator = GetComponent<Animator>();
         contactFilter.useTriggers = false;
-        contactFilter.SetLayerMask(LayerMask);
+        contactFilter.SetLayerMask(LayerMask.NameToLayer("Everything"));
         contactFilter.useLayerMask = true;
     }
 
@@ -109,5 +112,10 @@ public class PhysicsMovement : MonoBehaviour
         }
 
         rb2d.position = rb2d.position + move.normalized * distance;
+    }
+
+    public Vector2 GetCurrentVelocity()
+    {
+        return Velocity;
     }
 }

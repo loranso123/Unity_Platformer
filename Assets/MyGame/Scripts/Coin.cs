@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (col.gameObject.TryGetComponent(out Player player))
+        if (collider.gameObject.TryGetComponent(out Player player))
             Destroy(gameObject);
     }
 }
