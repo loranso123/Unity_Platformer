@@ -12,6 +12,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private const double swingClearanceR = 0.5;
     private const double swingClearanceL = -0.5;
+
     private PhysicsMovement _physicsMovement;
     private SpriteRenderer _sprite;
 

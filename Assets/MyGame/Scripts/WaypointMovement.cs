@@ -6,9 +6,9 @@ public class WaypointMovement : MonoBehaviour
 {
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed;
+    [SerializeField] private int _currentPoint;
 
     private Transform[] _points;
-    [SerializeField] private int _currentPoint;
 
     private void Start()
     {

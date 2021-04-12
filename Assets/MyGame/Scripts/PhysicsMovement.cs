@@ -10,8 +10,6 @@ public class PhysicsMovement : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    public bool Grounded { get; private set; }
-
     protected Vector2 Velocity;
     protected LayerMask LayerMask;
     protected float MinGroundNormalY = .65f;
@@ -22,9 +20,10 @@ public class PhysicsMovement : MonoBehaviour
     protected ContactFilter2D contactFilter;
     protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
-
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
+
+    public bool Grounded { get; private set; }
 
     void OnEnable()
     {
