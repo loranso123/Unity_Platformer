@@ -7,7 +7,6 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] private GameObject _coin;
     [SerializeField] private Transform _coinSpawnPoints;
 
-    private GameObject _coinOnScene;
     private Transform[] _spownPoints;
 
     private void Start()
@@ -21,7 +20,7 @@ public class CoinSpawner : MonoBehaviour
 
         for (int i = 0; i < _spownPoints.Length; i++)
         {
-            _coinOnScene = Instantiate(_coin, _spownPoints[i].position, Quaternion.identity);
+            Instantiate(_coin, _spownPoints[i].position, Quaternion.identity);
         }
 
     }

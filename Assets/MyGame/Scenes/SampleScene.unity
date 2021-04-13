@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coin: {fileID: 5957465443346787435, guid: 9406a9d8f7680cf419aa612da25c8c55, type: 3}
-  _enemySpawnPoints: {fileID: 1321111037}
+  _coinSpawnPoints: {fileID: 1321111037}
 --- !u!4 &896251055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2124158662637296971, guid: d2fd47c5522ed4e4db0557328c90756e,
